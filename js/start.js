@@ -8,7 +8,7 @@ window.Phonebook = {
     Router: {}
 };
 
-$(document).ready(function () {
+/*$(document).ready(function () {
     $("#test").click(function () {
         var dt = {
             owner: "Span",
@@ -36,4 +36,4 @@ $(document).ready(function () {
             }
         });
     })
-});
+});*/
