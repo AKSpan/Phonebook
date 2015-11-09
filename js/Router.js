@@ -9,7 +9,8 @@ Phonebook.Router = Backbone.Router.extend({
        'test':'test'
    },
     index: function () {
-        console.log("Index")
+        console.log("Index");
+        new Phonebook.Views.Welcome();
     },
     page: function (id) {
         console.log('id = '+id)
