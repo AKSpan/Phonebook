@@ -1,7 +1,12 @@
 /**
  * Created by Alexey on 09.11.2015.
  */
-Phonebook.Models = Backbone.Models({
+Phonebook.Models.Welcome = Backbone.Model.extend({
     user: '',
-    pass: ''
+    pass: '',
+    initialize: function (data) {
+        this.user = data.user;
+        this.pass = data.pass;
+    }
+
 });
