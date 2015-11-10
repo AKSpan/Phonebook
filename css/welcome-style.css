@@ -44,8 +44,10 @@ body {
     bottom: 0;
     width: auto;
     height: auto;
+    background-color: darkgray;
+    /*
     background-image: url(http://petersburgcity.com/download/wallpapers/scr_saver2_1152x864.jpg);
-    background-size: cover;
+    background-size: cover;*/
     filter: blur(2px);
     z-index: 0;
 }
@@ -128,7 +130,7 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
-#user-info, #phones, #social{
+#user-info, #phones, #social,#avatar{
     position: absolute;
     z-index: 2;
 }
@@ -137,10 +139,27 @@ body {
     top: 15%;
 }
 #phones {
-    top: 15%;
+    left: 30%;
+    top: 30%;
+}
+#avatar {
+    left: 55%;
+    top: 3%;
+}
+#user-info {
+    left: 30%;
+    top: 3%;
 }
 input[type=text]:focus, input[type=password]:focus
 {
     outline: none;
     border: 1px solid rgba(255, 255, 255, 0.9);
+}
+#avatar-img {
+    height: 190px;
+    width: 160px;
+}
+#user-info > input:nth-child(0)
+{
+    background-color: #5379fa;
 }
