@@ -8,18 +8,14 @@ Phonebook.Router = Backbone.Router.extend({
    routes:
    {
        '':'index',
-       'list':'showList',
-       'test':'test'
+       'info':'showContact',
    },
     index: function () {
         console.log("Index");
         new Phonebook.Views.Welcome();
     },
-    showList: function () {
-        new Phonebook.Views.List();
-    },
-    test: function () {
-        console.log('test')
+    showContact: function () {
+        new Phonebook.Views.Info();
     }
 });
 Phonebook.Router.rout = new Phonebook.Router();

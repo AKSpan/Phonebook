@@ -4,8 +4,9 @@
 Phonebook.Views.Welcome = Backbone.View.extend({
     template: 'welcome',
     el: '#content',
-    model: Phonebook.Models.Welcome,
+    model: null,
     initialize: function () {
+        this.model = new Phonebook.Models.Welcome();
         this.render();
     },
     render: function () {
@@ -20,18 +21,13 @@ Phonebook.Views.Welcome = Backbone.View.extend({
         "keyup .login input": "changeInputs"
     },
     login: function () {
-        //console.log("l", this.$el.find('input[name="user"]').val())
-       // console.log("p", this.$el.find('input[name="password"]').val())
-        this.model = new Phonebook.Models.Welcome({
-            user: this.$el.find('input[name="user"]').val(),
-            pass: this.$el.find('input[name="password"]').val()
-        });
-        console.log('r',Phonebook.Router.rout)
-
-       Phonebook.Router.rout.navigate('list',{trigger:true});
-
+        console.log('model', this.model);
+        if (this.model.has('user') && this.model.get('user') == 'Span')
+            Phonebook.Router.rout.navigate('info', {trigger: true});
+        else
+            alert('deny')
     },
     changeInputs: function (data) {
-       // console.log($(data.currentTarget).val())
+        this.model.set($(data.currentTarget).attr('name'), $(data.currentTarget).val());
     }
 });
