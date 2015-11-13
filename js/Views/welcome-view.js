@@ -26,6 +26,7 @@ Phonebook.Views.Welcome = Backbone.View.extend({
             },
             {
                 success: function (data) {
+                    Phonebook.Router.rout.navigate("info", {trigger: true});
                     console.log('s', data)
                 },
                 error: function (data) {

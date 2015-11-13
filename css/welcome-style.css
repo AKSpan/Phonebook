@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background: #fff;
-
+    min-width: 700px;
     color: #fff;
     font-family: Arial;
     font-size: 12px;
@@ -21,19 +21,7 @@ body {
     font-family: 'Exo', sans-serif;
     font-size: 16px;
     font-weight: 400;
-}
-
-.grad {
-    background-color: transparent;
-    bottom: 0;
-    height: auto;
-    left: -20px;
-    opacity: 0.41;
-    position: absolute;
-    right: 0;
-    top: -20px;
-    width: auto;
-    z-index: 1;
+    padding: 4px;
 }
 
 .body {
@@ -53,9 +41,9 @@ body {
 }
 
 .header {
+    bottom: 155px;
+    left: 50px;
     position: absolute;
-    right: calc(30% - 7px);
-    top: calc(10% + 10px);
     z-index: 3;
 }
 
@@ -81,12 +69,7 @@ body {
     z-index: 2;
 }
 
-.login input[type=text] {
-    padding: 4px;
-}
-
 .login input[type=password] {
-    padding: 4px;
     margin-top: 10px;
 }
 
@@ -112,16 +95,6 @@ body {
     opacity: 0.6;
 }
 
-/*.login input[type=text]:focus {
-    outline: none;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-}
-
-.login input[type=password]:focus {
-    outline: none;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-}*/
-
 .login input[type=button]:focus {
     outline: none;
 }
@@ -135,20 +108,28 @@ body {
     z-index: 2;
 }
 #social {
-    left: 15%;
-    top: 15%;
+    float: right;
+    padding-top: 5%;
+    position: relative;
+    right: 5%;
 }
 #phones {
-    left: 30%;
-    top: 30%;
+    clear: both;
+    float: left;
+    left: 5%;
+    padding-top: 5%;
+    position: relative;
 }
 #avatar {
-    left: 55%;
-    top: 3%;
+    float: right;
+    position: relative;
+    right: 5%;
 }
 #user-info {
-    left: 30%;
-    top: 3%;
+    float: left;
+    left: 5%;
+    position: relative;
+    width: 260px;
 }
 input[type=text]:focus, input[type=password]:focus
 {
@@ -159,7 +140,13 @@ input[type=text]:focus, input[type=password]:focus
     height: 190px;
     width: 160px;
 }
-#user-info > input:nth-child(0)
-{
-    background-color: #5379fa;
+#info-page {
+    min-width: 700px;
+    padding-left: 25%;
+    padding-top: 5%;
+    position: relative;
+    width: 50%;
+}
+#user-info > input:not(:first-child) {
+    margin-top: 10px;
 }

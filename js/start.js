@@ -7,5 +7,3 @@ window.Phonebook = {
     Collections: {},
     Router: {}
 };
-
-
