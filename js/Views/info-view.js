@@ -1,8 +1,8 @@
 /**
- * Created by Alexey on 14.11.2015.
+ * Created by Alexey on 09.11.2015.
  */
-Phonebook.Views.List = Backbone.View.extend({
-    template: 'list',
+Phonebook.Views.Info = Backbone.View.extend({
+    template: 'info',
     el: '#content',
     model: null,
     initialize: function () {

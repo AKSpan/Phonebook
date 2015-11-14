@@ -103,16 +103,18 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
-#user-info, #phones, #social,#avatar{
+#user-info, #phones, #social, #avatar {
     position: absolute;
     z-index: 2;
 }
+
 #social {
     float: right;
     padding-top: 5%;
     position: relative;
     right: 5%;
 }
+
 #phones {
     clear: both;
     float: left;
@@ -120,26 +122,30 @@ body {
     padding-top: 5%;
     position: relative;
 }
+
 #avatar {
     float: right;
     position: relative;
     right: 5%;
 }
+
 #user-info {
     float: left;
     left: 5%;
     position: relative;
     width: 260px;
 }
-input[type=text]:focus, input[type=password]:focus
-{
+
+input[type=text]:focus, input[type=password]:focus {
     outline: none;
     border: 1px solid rgba(255, 255, 255, 0.9);
 }
+
 #avatar-img {
     height: 190px;
     width: 160px;
 }
+
 #info-page {
     min-width: 700px;
     padding-left: 25%;
@@ -147,6 +153,49 @@ input[type=text]:focus, input[type=password]:focus
     position: relative;
     width: 50%;
 }
+
 #user-info > input:not(:first-child) {
     margin-top: 10px;
+}
+
+.contour {
+
+}
+
+#search-block {
+    float: left;
+    left: 20%;
+    padding-top: 1%;
+    position: relative;
+    top: 5%;
+}
+
+#add-contact {
+    float: right;
+    right: 25%;
+    position: relative;
+}
+
+#add-contact {
+    background: #a6dc8c none repeat scroll 0 0;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    box-shadow: 0 0 3px gray;
+    color: #f5f5f5;
+    font-family: Verdana;
+    font-size: 3em;
+    font-weight: bold;
+    height: 45px;
+    line-height: 1.1em;
+    text-align: center;
+    text-decoration: none;
+    width: 45px;
+}
+
+#add-contact:hover {
+    background: #65d269;
+    width: 47px;
+    height: 47px;
+    font-size: 3.1em;
+    box-shadow: 0 0 5px gray;
 }
