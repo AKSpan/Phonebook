@@ -32,10 +32,9 @@ body {
     bottom: 0;
     width: auto;
     height: auto;
-    background-color: darkgray;
-    /*
-    background-image: url(http://petersburgcity.com/download/wallpapers/scr_saver2_1152x864.jpg);
-    background-size: cover;*/
+   /* background-color: darkgray;*/
+    background-image: url(../img/main-background.jpg);
+    background-size: cover;
     filter: blur(2px);
     z-index: 0;
 }
@@ -164,7 +163,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 #search-block {
     float: left;
-    left: 20%;
+    left: calc(25% + 5px);
     padding-top: 1%;
     position: relative;
     top: 5%;
@@ -175,7 +174,9 @@ input[type=text]:focus, input[type=password]:focus {
     right: 25%;
     position: relative;
 }
-
+#add-block {
+    padding-top: calc(1% + 1px);
+}
 #add-contact {
     background: #a6dc8c none repeat scroll 0 0;
     border: 2px solid #f5f5f5;
@@ -183,19 +184,56 @@ input[type=text]:focus, input[type=password]:focus {
     box-shadow: 0 0 3px gray;
     color: #f5f5f5;
     font-family: Verdana;
-    font-size: 3em;
+    font-size: 2.3em;
     font-weight: bold;
-    height: 45px;
-    line-height: 1.1em;
+    height: 30px;
+    line-height: 25px;
     text-align: center;
     text-decoration: none;
-    width: 45px;
+    width: 30px;
 }
 
 #add-contact:hover {
     background: #65d269;
-    width: 47px;
-    height: 47px;
-    font-size: 3.1em;
+    width: 35px;
+    height: 35px;
+    font-size: 2.9em;
+    line-height: 30px;
     box-shadow: 0 0 5px gray;
+}
+
+#contacts {
+    left: calc(25% + 5px);
+    position: absolute;
+    text-align: center;
+    top: 50px;
+    width: 50%;
+}
+.alp-header {
+    background: #f7f373 none repeat scroll 0 0;
+    border: 1px solid black;
+    color: black;
+    font-family: Carter One;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+.contact-note {
+    height: 60px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.contact-thumbnails {
+    position: absolute;
+}
+.contact-thumbnails > img {
+    width: 60px;
+    border-radius: 50%;
+}
+.contact-short-info {
+    height: 60px;
+    padding-left: 75px;
 }
