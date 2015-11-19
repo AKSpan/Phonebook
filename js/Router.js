@@ -14,7 +14,7 @@ Phonebook.Router = Backbone.Router.extend({
    },
     index: function () {
         console.log("Index");
-        new Phonebook.Views.Welcome();
+        new Phonebook.Views.Login();
     },
     showContact: function () {
         new Phonebook.Views.Info();
