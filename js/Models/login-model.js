@@ -6,7 +6,6 @@ Phonebook.Models.Login = Backbone.Model.extend({
         user: '',
         password: ''
     },
-    //url: '/phonebk/login',
     url: null,
     save: function (data, opts) {
         var username = this.attributes.user;

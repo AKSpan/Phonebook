@@ -18,8 +18,8 @@ Phonebook.Views.Login = Backbone.View.extend({
     },
     events: {
         "click #login": "login",
-        "click #reg": "registration",
-        "keyup .login input": "changeInputs"
+        "keyup .login input": "changeInputs",
+        "click .choose-inputs": "changeChoose"
     },
     login: function () {
         this.model.save({
@@ -38,19 +38,25 @@ Phonebook.Views.Login = Backbone.View.extend({
     changeInputs: function (data) {
         this.model.set($(data.currentTarget).attr('name'), $(data.currentTarget).val());
     },
-    registration: function () {
-        this.model.save({
-                action: 'registration'
-            },
-            {
-                success: function (data) {
-                   // Phonebook.Router.rout.navigate("list", {trigger: true});
-                    console.log('s', data)
-                },
-                error: function (data) {
-                    console.log('e', data)
-                }
-            });
-
+    changeChoose: function (data) {
+        var currInp = $(data.currentTarget);
+        var that = this;
+        if (currInp.hasClass("choose-active")) {
+            currInp.parents("#choosing").find('input').addClass("choose-active");
+            currInp.removeClass("choose-active")
+        }
+        switch (currInp.attr('id'))
+        {
+            case 'choose-sign-up':
+                $.get("html/signup.html", function (template) {
+                    that.$el.find('.login').html(template);
+                });
+                break;
+            case 'choose-login':
+                $.get("html/login.html", function (template) {
+                    that.$el.find('.login').html(template);
+                });
+                break;
+        }
     }
 });

@@ -3,15 +3,14 @@
  */
 Phonebook.Router = Backbone.Router.extend({
     initialize: function () {
-      console.log('Init router');
+        console.log('Init router');
     },
-   routes:
-   {
-       '':'index',
-       info:'showContact',
-       list:'showAllContacts',
+    routes: {
+        '': 'index',
+        info: 'showContact',
+        list: 'showAllContacts',
 
-   },
+    },
     index: function () {
         console.log("Index");
         new Phonebook.Views.Login();
@@ -19,8 +18,8 @@ Phonebook.Router = Backbone.Router.extend({
     showContact: function () {
         new Phonebook.Views.Info();
     },
-    showAllContacts:function(){
-      new Phonebook.Views.List();
+    showAllContacts: function () {
+        new Phonebook.Views.List();
     }
 });
 Phonebook.Router.rout = new Phonebook.Router();
