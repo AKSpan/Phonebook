@@ -5,7 +5,8 @@ body {
     margin: 0;
     padding: 0;
     background: #fff;
-    min-width: 700px;
+    min-width: 340px;
+    min-height: 340px;
     color: #fff;
     font-family: Arial;
     font-size: 12px;
@@ -61,11 +62,11 @@ body {
 .login {
     border: 2px solid;
     border-radius: 10px;
-    height: 150px;
     left: calc(70% - 210px);
-    padding: 10px;
-    position: absolute;
-    top: calc(15% + 15px);
+    margin-top: calc(5% + 30px);
+    padding: 10px 10px 5px;
+    position: relative;
+    width: 260px;
     z-index: 2;
 }
 
@@ -238,11 +239,7 @@ input[type=text]:focus, input[type=password]:focus {
     height: 60px;
     padding-left: 75px;
 }
-
 a#forgot-link {
-    float: right;
-}
-a#reg-link, a#forgot-link {
     font-family: Exo,sans-serif;
     font-size: 15px;
     position: relative;

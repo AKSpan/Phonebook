@@ -6,7 +6,6 @@ Phonebook.Views.Login = Backbone.View.extend({
     el: '#content',
     model: null,
     initialize: function () {
-        this.model = new Phonebook.Models.Login({name: '', pass: ''});
         this.render();
     },
     render: function () {
@@ -19,9 +18,14 @@ Phonebook.Views.Login = Backbone.View.extend({
     events: {
         "click #login": "login",
         "keyup .login input": "changeInputs",
-        "click .choose-inputs": "changeChoose"
+        "click .choose-inputs": "changeChoose",
+        "click #complete-sign-up": "signUp"
     },
     login: function () {
+        var name = this.$el.find("#login-username").val();
+        var pass = this.$el.find("#login-pass").val();
+        this.model = new Phonebook.Models.Login({user: name, password: pass});
+
         this.model.save({
                 action: 'login'
             },
@@ -35,9 +39,10 @@ Phonebook.Views.Login = Backbone.View.extend({
                 }
             });
     },
-    changeInputs: function (data) {
-        this.model.set($(data.currentTarget).attr('name'), $(data.currentTarget).val());
-    },
+    /* changeInputs: function (data) {
+     this.model.set($(data.currentTarget).attr('name'), $(data.currentTarget).val());
+     console.log(this.model)
+     },*/
     changeChoose: function (data) {
         var currInp = $(data.currentTarget);
         var that = this;
@@ -45,8 +50,7 @@ Phonebook.Views.Login = Backbone.View.extend({
             currInp.parents("#choosing").find('input').addClass("choose-active");
             currInp.removeClass("choose-active")
         }
-        switch (currInp.attr('id'))
-        {
+        switch (currInp.attr('id')) {
             case 'choose-sign-up':
                 $.get("html/signup.html", function (template) {
                     that.$el.find('.login').html(template);
@@ -57,6 +61,31 @@ Phonebook.Views.Login = Backbone.View.extend({
                     that.$el.find('.login').html(template);
                 });
                 break;
+        }
+    },
+    signUp: function () {
+
+        var name = this.$el.find("#sign-up-username").val();
+        var pass = this.$el.find("#sign-up-pass").val();
+        var pass2 = this.$el.find("#sign-up-pass2").val();
+        if (name.length < 1 || pass.length < 1 || pass2.length < 1)
+            alert("Fill the fields");
+        else if (pass !== pass2)
+            alert("Password mismatch!");
+        else {
+            this.model = new Phonebook.Models.Login({user: name, password: pass});
+            this.model.save({
+                    action: 'registration'
+                },
+                {
+                    success: function (data) {
+                        //Phonebook.Router.rout.navigate("list", {trigger: true});
+                        console.log('s', data)
+                    },
+                    error: function (data) {
+                        console.log('e', data)
+                    }
+                });
         }
     }
 });
