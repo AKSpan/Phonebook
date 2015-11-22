@@ -33,7 +33,7 @@ body {
     bottom: 0;
     width: auto;
     height: auto;
-   /* background-color: darkgray;*/
+    /* background-color: darkgray;*/
     background-image: url(../img/main-background.jpg);
     background-size: cover;
     filter: blur(2px);
@@ -88,11 +88,11 @@ body {
     width: 260px;
 }
 
-.login input[type=button]:hover{
+.login input[type=button]:hover {
     opacity: 0.8;
 }
 
-.login input[type=button]:active{
+.login input[type=button]:active {
     opacity: 0.6;
 }
 
@@ -176,9 +176,11 @@ input[type=text]:focus, input[type=password]:focus {
     right: 25%;
     position: relative;
 }
+
 #add-block {
     padding-top: calc(1% + 1px);
 }
+
 #add-contact {
     background: #a6dc8c none repeat scroll 0 0;
     border: 2px solid #f5f5f5;
@@ -211,6 +213,7 @@ input[type=text]:focus, input[type=password]:focus {
     top: 50px;
     width: 50%;
 }
+
 .alp-header {
     background: #f7f373 none repeat scroll 0 0;
     border: 1px solid black;
@@ -222,6 +225,7 @@ input[type=text]:focus, input[type=password]:focus {
     font-weight: 500;
     line-height: 20px;
 }
+
 .contact-note {
     height: 60px;
     margin-left: 25px;
@@ -231,34 +235,40 @@ input[type=text]:focus, input[type=password]:focus {
 .contact-thumbnails {
     position: absolute;
 }
+
 .contact-thumbnails > img {
     width: 60px;
     border-radius: 50%;
 }
+
 .contact-short-info {
     height: 60px;
     padding-left: 75px;
 }
+
 a#forgot-link {
-    font-family: Exo,sans-serif;
+    font-family: Exo, sans-serif;
     font-size: 15px;
     position: relative;
 }
+
 a:link {
     color: #f9c11c;
     text-decoration: none;
 }
-a:visited
-{
+
+a:visited {
     color: #b2085d;
 }
+
 a:hover {
     text-decoration: underline;
 }
-.choose-active
-{
+
+.choose-active {
     background: transparent !important;
 }
+
 #choosing {
     border: 2px solid;
     border-radius: 10px;
@@ -269,8 +279,8 @@ a:hover {
     width: 260px;
     z-index: 2;
 }
-#choose-sign-up, #choose-login
-{
+
+#choose-sign-up, #choose-login {
     background: #fff none repeat scroll 0 0;
     border: 1px solid #fff;
     border-radius: 2px;
@@ -280,4 +290,32 @@ a:hover {
     font-weight: 400;
     height: 35px;
     width: 128px;
+}
+
+#info-popup {
+    border: 2px solid;
+    border-radius: 10px;
+    left: calc(70% - 210px);
+    margin-top: 5px;
+    padding: 0 10px;
+    position: relative;
+    width: 260px;
+    display: none;
+    font-family: "Exo", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#new-user-nickname {
+    color: #65d269;
+}
+
+#popup-text {
+    width: 220px;
+}
+#popup-reg-result {
+    float: right;
+    margin-top: -40px;
+    padding-right: 5px;
+    width: 30px;
 }

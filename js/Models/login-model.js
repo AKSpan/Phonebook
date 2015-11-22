@@ -6,12 +6,10 @@ Phonebook.Models.Login = Backbone.Model.extend({
         user: '',
         password: ''
     },
-
     url: null,
     save: function (data, opts) {
-        //console.log(this.attributes.user,this.attributes.password)
-        var username = this.attributes.user;
-        var password = this.attributes.password;
+        var username = this.get('user');
+        var password = this.get('password');
         var key = CryptoJS.SHA1(username + password);
         opts.contentType = 'application/json';
 

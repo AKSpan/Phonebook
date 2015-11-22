@@ -64,7 +64,7 @@ Phonebook.Views.Login = Backbone.View.extend({
         }
     },
     signUp: function () {
-
+var that = this;
         var name = this.$el.find("#sign-up-username").val();
         var pass = this.$el.find("#sign-up-pass").val();
         var pass2 = this.$el.find("#sign-up-pass2").val();
@@ -79,11 +79,20 @@ Phonebook.Views.Login = Backbone.View.extend({
                 },
                 {
                     success: function (data) {
-                        //Phonebook.Router.rout.navigate("list", {trigger: true});
-                        console.log('s', data)
+                        $.get("html/popup.html", function (template) {
+                            that.$el.find('#info-popup').html(template);
+                            that.$el.find('#info-popup').fadeIn('slow');
+                            that.$el.find('#new-user-nickname').html(name);
+                            that.$el.find('#popup-reg-result').attr('src','img/done.png');
+                        });
                     },
                     error: function (data) {
                         console.log('e', data)
+                        $.get("html/popup.html", function (template) {
+                            console.log(that.$el.find('#info-popup'))
+                            that.$el.find('#info-popup').html(template);
+                            that.$el.find('new-user-nickname').html(name);
+                        });
                     }
                 });
         }
