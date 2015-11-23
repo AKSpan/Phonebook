@@ -39,12 +39,15 @@ body {
     filter: blur(2px);
     z-index: 0;
 }
-
-.header {
-    left: 50px;
+container {
+    left: 55%;
+    padding: 10px;
     position: absolute;
-    top: calc(-60% - 10px);
-    z-index: 3;
+    top: 5%;
+}
+.header {
+    margin-left: 50px;
+    position: relative;
 }
 
 .header div {
@@ -62,12 +65,16 @@ body {
 .login {
     border: 2px solid;
     border-radius: 10px;
-    left: calc(70% - 210px);
-    margin-top: calc(5% + 30px);
-    padding: 10px 10px 5px;
+    margin-top: 10px;
+    padding: 10px;
     position: relative;
-    width: 260px;
-    z-index: 2;
+}
+#choosing {
+    border: 2px solid;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 10px;
+    position: relative;
 }
 
 .login input[type=password] {
@@ -98,6 +105,21 @@ body {
 
 .login input[type=button]:focus {
     outline: none;
+}
+#info-popup {
+    border: 2px solid;
+    border-radius: 10px;
+    /*display: none;*/
+    font-family: "Exo",sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    padding: 10px;
+    position: relative;
+}
+#links
+{
+    padding-top: 5px;
 }
 
 ::-webkit-input-placeholder {
@@ -269,16 +291,7 @@ a:hover {
     background: transparent !important;
 }
 
-#choosing {
-    border: 2px solid;
-    border-radius: 10px;
-    left: calc(70% - 210px);
-    padding: 10px;
-    position: absolute;
-    top: 45px;
-    width: 260px;
-    z-index: 2;
-}
+
 
 #choose-sign-up, #choose-login {
     background: #fff none repeat scroll 0 0;
@@ -292,26 +305,17 @@ a:hover {
     width: 128px;
 }
 
-#info-popup {
-    border: 2px solid;
-    border-radius: 10px;
-    left: calc(70% - 210px);
-    margin-top: 5px;
-    padding: 0 10px;
-    position: relative;
-    width: 260px;
-    display: none;
-    font-family: "Exo", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-}
+
 
 #new-user-nickname {
     color: #65d269;
 }
 
 #popup-text {
-    width: 220px;
+    float: left;
+    position: relative;
+    width: 210px;
+    word-wrap: break-word;
 }
 #popup-reg-result {
     float: right;
@@ -319,3 +323,4 @@ a:hover {
     padding-right: 5px;
     width: 30px;
 }
+

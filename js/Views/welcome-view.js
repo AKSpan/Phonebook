@@ -26,21 +26,48 @@ Phonebook.Views.Login = Backbone.View.extend({
         var pass = this.$el.find("#login-pass").val();
         this.model = new Phonebook.Models.Login({user: name, password: pass});
 
-        this.model.save({
-                action: 'login'
-            },
-            {
-                success: function (data) {
-                    Phonebook.Router.rout.navigate("list", {trigger: true});
-                    console.log('s', data)
+
+        var cnt = new Phonebook.Models.Contact({
+            "_id": "563c8de24e5a350ee8eb547d",
+            "className": "Entities.AKdbEntity",
+            "name": "Катаев",
+            "surname": "Алексей",
+            "thirdname": "Яковлевич",
+            "birthday": "10.01.1991",
+            "phone": "+79118158636",
+            "avatar": "img/default-avatar.png",
+            "social": [
+                {
+                    "name": "vk",
+                    "url": "vk.com/a_kataev"
                 },
-                error: function (data) {
-                    console.log('e', data)
+                {
+                    "name": "twitter",
+                    "url": "twitter.com/AKataev"
+                },
+                {
+                    "name": "instagram",
+                    "url": "instagram.com/akataev_"
                 }
-            });
+            ],
+            "owner": "Span"
+        }).toJSON();
+        Phonebook.Router.rout.navigate("list", /*{trigger: true}*/{params:cnt});
+        /*this.model.save({
+         action: 'login'
+         },
+         {
+         success: function (data) {
+         Phonebook.Router.rout.navigate("list", {trigger: true});
+         console.log('s', data)
+         },
+         error: function (data) {
+         console.log('e', data)
+         }
+         });*/
     },
     /* changeInputs: function (data) {
-     this.model.set($(data.currentTarget).attr('name'), $(data.currentTarget).val());
+     this.model.set($(data.currentTarget).attr('name', $(data.currentTarget).val());
      console.log(this.model)
      },*/
     changeChoose: function (data) {
@@ -64,7 +91,7 @@ Phonebook.Views.Login = Backbone.View.extend({
         }
     },
     signUp: function () {
-var that = this;
+        var that = this;
         var name = this.$el.find("#sign-up-username").val();
         var pass = this.$el.find("#sign-up-pass").val();
         var pass2 = this.$el.find("#sign-up-pass2").val();
@@ -83,7 +110,7 @@ var that = this;
                             that.$el.find('#info-popup').html(template);
                             that.$el.find('#info-popup').fadeIn('slow');
                             that.$el.find('#new-user-nickname').html(name);
-                            that.$el.find('#popup-reg-result').attr('src','img/done.png');
+                            that.$el.find('#popup-reg-result').attr('src', 'img/done.png');
                         });
                     },
                     error: function (data) {
