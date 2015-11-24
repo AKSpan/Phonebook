@@ -37,7 +37,18 @@ Phonebook.Views.Login = Backbone.View.extend({
                     if (code >= 400)
                         that.fillInfoPopup('#error-popup', answer, 'img/error.png');
                     else {
-                        console.log(data.get('code'))
+                        console.log(data.get('code'));
+                        var collection = new Phonebook.Collections.Contacts();
+                        collection.fetch({
+                            data: JSON.stringify("{a:b}"),
+                            type: 'POST',
+                            success: function (data) {
+                               console.log("s",data)
+                            },
+                            error: function (data) {
+                                console.log("e",data)
+                            }
+                        });
                         Phonebook.Router.rout.navigate("list", {trigger: true});
                     }
                 },
@@ -105,3 +116,28 @@ Phonebook.Views.Login = Backbone.View.extend({
 
     }
 });
+/*
+* var findUsersColl = new documents.collections.FindUserColl();
+ findUsersColl.fetch({
+ data: JSON.stringify(post_data),
+ type: 'POST',
+ success: function (data) {
+ new documents.views.FindUsersListView({
+ collection: data,
+ curr_el: currUserInfoBlock,
+ currID: self.currID,
+ id_doc: id_doc
+ }, true);
+ },
+ error: function (data) {
+ $().toastmessage('showToast', {
+ text: 'Не удалось загрузить список пользователей! (' + data + ')',
+ position: 'middle-right',
+ type: 'warning',
+ inEffectDuration: 600,
+ stayTime: 5000
+ });
+ }
+ }
+ );
+ */

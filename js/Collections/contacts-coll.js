@@ -3,9 +3,10 @@
  */
 Phonebook.Collections.Contacts = Backbone.Collection.extend({
     model:Phonebook.Models.Contact,
-    url:'json/dict.json',
-  /*  parse:function(data)
+    url:'/phonebk/getcontacts',
+    parse:function(data)
     {
+        console.log(data)
         return data;
-    }*/
+    }
 });
