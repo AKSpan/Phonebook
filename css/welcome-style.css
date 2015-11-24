@@ -189,9 +189,8 @@ input[type=text]:focus, input[type=password]:focus {
 #search-block {
     float: left;
     left: calc(25% + 5px);
-    padding-top: 1%;
+    padding-top: calc(1% + 1px);
     position: relative;
-    top: 5%;
 }
 
 #add-contact {
@@ -201,7 +200,10 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 #add-block {
-    padding-top: calc(1% + 1px);
+    float: left;
+    left: calc(75% - 280px);
+    padding-top: calc(1% + 4px);
+    position: relative;
 }
 
 #add-contact {
@@ -221,11 +223,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 #add-contact:hover {
-    background: #65d269;
-    width: 35px;
-    height: 35px;
-    font-size: 2.9em;
-    line-height: 30px;
+    background: #65d269 none repeat scroll 0 0;
     box-shadow: 0 0 5px gray;
 }
 
@@ -233,7 +231,7 @@ input[type=text]:focus, input[type=password]:focus {
     left: calc(25% + 5px);
     position: absolute;
     text-align: center;
-    top: 50px;
+    top: 55px;
     width: 50%;
 }
 
@@ -250,7 +248,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .contact-note {
-    height: 60px;
+    height: 30px;
     margin-left: 25px;
     margin-right: 25px;
 }
