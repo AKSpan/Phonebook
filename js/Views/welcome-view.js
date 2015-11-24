@@ -55,14 +55,12 @@ Phonebook.Views.Login = Backbone.View.extend({
         }
         switch (currInp.attr('id')) {
             case 'choose-sign-up':
-                $.get("html/signup.html", function (template) {
-                    that.$el.find('.login').html(template);
-                });
+                that.$el.find('#login-block').hide();
+                that.$el.find('#sign-up-block').show();
                 break;
             case 'choose-login':
-                $.get("html/login.html", function (template) {
-                    that.$el.find('.login').html(template);
-                });
+                that.$el.find('#sign-up-block').hide();
+                that.$el.find('#login-block').show();
                 break;
         }
     },
@@ -98,14 +96,12 @@ Phonebook.Views.Login = Backbone.View.extend({
     },
     fillInfoPopup: function (element, text) {
         var that = this;
-        console.log(that.$el.find(element))
 
         that.$el.find(element).fadeIn('slow').delay(4000).fadeOut('slow');
         if (element == '.success-popup')
             that.$el.find('.new-user-nickname').html(text);
         else
             that.$el.find('.popup-text').html(text);
-//        that.$el.find('#popup-reg-result').attr('src', img);
 
     }
 });
