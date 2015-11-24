@@ -106,16 +106,17 @@ container {
 .login input[type=button]:focus {
     outline: none;
 }
-#info-popup {
+/*#info-popup*/#success-popup,#error-popup {
     border: 2px solid;
     border-radius: 10px;
-    /*display: none;*/
+    display: none;
     font-family: "Exo",sans-serif;
     font-size: 16px;
     font-weight: 400;
     margin-top: 10px;
     padding: 10px;
     position: relative;
+    width: 260px;
 }
 #links
 {
@@ -305,22 +306,22 @@ a:hover {
     width: 128px;
 }
 
-
-
-#new-user-nickname {
+.new-user-nickname {
     color: #65d269;
 }
 
-#popup-text {
-    float: left;
+.popup-text {
     position: relative;
     width: 210px;
     word-wrap: break-word;
 }
-#popup-reg-result {
-    float: right;
-    margin-top: -40px;
-    padding-right: 5px;
+.popup-reg-result {
+    bottom: 0;
+    left: 0;
+    margin: auto auto auto 230px;
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 30px;
 }
 

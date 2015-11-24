@@ -30,5 +30,13 @@ Phonebook.Models.Login = Backbone.Model.extend({
         };
         opts.data = JSON.stringify(data);
         return Backbone.Model.prototype.save.call(this, data, opts);
+    },
+    parse: function (data) {
+       console.log(data,'parse')
+        var res = {
+            answer:data.answer,
+            code:data.code
+        };
+       return res;
     }
 });

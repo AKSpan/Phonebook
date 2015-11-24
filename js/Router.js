@@ -15,8 +15,7 @@ Phonebook.Router = Backbone.Router.extend({
     showContact: function () {
         new Phonebook.Views.Info();
     },
-    showAllContacts: function (data) {
-       // console.log(this.routeParams.list)
+    showAllContacts: function () {
         new Phonebook.Views.LoadList(this.routeParams.list);
     },
     navigate: function(route, options) {
@@ -27,7 +26,6 @@ Phonebook.Router = Backbone.Router.extend({
             params = (options && options.params) ? options.params : null;
         $.extend(routeOption, options);
         delete routeOption.params;
-
         //set the params for the route
         this.param(route, params);
         Backbone.Router.prototype.navigate(route, routeOption);
