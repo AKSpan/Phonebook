@@ -5,24 +5,18 @@ Phonebook.Views.List = Backbone.View.extend({
     el: '#contacts',
     template: '',
     collection:null,
-    initialize: function () {
+    initialize: function (collection) {
+        //console.log("init LIST collection",collection)
         this.template = _.template($('#list-template').html());
-        this.renderListContact();
+        this.renderListContact(collection);
     },
-    renderListContact: function () {
+    renderListContact: function (collection) {
         var that = this;
-        this.collection = new Phonebook.Collections.Contacts();
-
-        this.collection.fetch({
-            success: function () {
-                that.collection.each(function (field) {
-                   that.renderOneContact(field)
-                });
-            },
-            error: function() {
-                console.log('Failed to fetch!');
-            }
+        //console.log("collection",collection)
+        _.each(collection.models,function(record){
+           that.renderOneContact(record);
         });
+
     },
     renderOneContact: function (contact) {
         this.$el.append(this.template(contact.toJSON()));
@@ -32,8 +26,19 @@ Phonebook.Views.LoadList = Backbone.View.extend({
     url_name: 'list',
     el: '#content',
     model: null,
-    initialize: function () {
-        this.render();
+    collection:null,
+    initialize: function (search) {
+        var that = this;
+        this.collection = new Phonebook.Collections.Contacts();
+        this.collection.fetch({
+            data:search,
+            type:'post',
+            async:false,
+            success: function () {
+                that.render();
+            }
+        });
+
 
     },
     render: function () {
@@ -45,6 +50,6 @@ Phonebook.Views.LoadList = Backbone.View.extend({
             },
             async: false
         });
-        new Phonebook.Views.List();
+        new Phonebook.Views.List(this.collection);
     }
 });

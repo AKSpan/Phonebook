@@ -248,23 +248,31 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .contact-note {
-    height: 30px;
+    border: 1px solid;
+    height: 40px;
     margin-left: 25px;
     margin-right: 25px;
+    padding: 10px 0;
+    position: relative;
+    width: calc(100% - 50px);
 }
 
 .contact-thumbnails {
-    position: absolute;
+    float: left;
+    position: relative;
+    width: 4.395%;
 }
 
 .contact-thumbnails > img {
-    width: 60px;
     border-radius: 50%;
+    height: 40px;
+    width: 40px;
 }
 
 .contact-short-info {
-    height: 60px;
-    padding-left: 75px;
+    float: left;
+    width: 95.604%;
+    word-wrap: break-word;
 }
 
 a#forgot-link {
