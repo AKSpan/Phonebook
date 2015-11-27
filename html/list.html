@@ -7,10 +7,14 @@
     <div class="sorted-by-alp">
         <p class="alp-header"><%= group_letter %></p>
 
-        <div class="contact-note">
-            <div class="contact-thumbnails"><img src="<%= avatar %>"/></div>
-            <div class="contact-short-info"><p class="contact-short-info-text"><%= surname %> <%= name %>
-                <%= thirdname %></p></div>
-        </div>
+        <div id="contact-notes-block"></div>
+
+    </div>
+</script>
+<script id="contact-note-template" type="text/template">
+    <div class="contact-note">
+        <div class="contact-thumbnails"><img src="<%= avatar %>"/></div>
+        <div class="contact-short-info"><p class="contact-short-info-text"><%= surname %> <%= name %>
+            <%= thirdname %></p></div>
     </div>
 </script>

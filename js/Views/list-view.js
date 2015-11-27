@@ -3,11 +3,12 @@
  */
 Phonebook.Views.List = Backbone.View.extend({
     el: '#contacts',
-    template: '',
+    list_contact_template: '',
+    contact_notes_template: '',
     collection:null,
     initialize: function (collection) {
         //console.log("init LIST collection",collection)
-        this.template = _.template($('#list-template').html());
+        this.list_contact_template = _.template($('#list-template').html());
         this.renderListContact(collection);
     },
     renderListContact: function (collection) {
@@ -19,7 +20,7 @@ Phonebook.Views.List = Backbone.View.extend({
 
     },
     renderOneContact: function (contact) {
-        this.$el.append(this.template(contact.toJSON()));
+        this.$el.append(this.contact_notes_template(contact.toJSON()));
     }
 });
 Phonebook.Views.LoadList = Backbone.View.extend({
