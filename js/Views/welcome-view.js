@@ -40,20 +40,6 @@ Phonebook.Views.Login = Backbone.View.extend({
                     else {
                         console.log(data.get('code'));
                         window.location.hash="list";
-                       /* var collection = new Phonebook.Collections.Contacts();
-                        collection.fetch({
-                            data: JSON.stringify({search: ""}),
-                            type: 'POST',
-                            success: function (data) {
-                                window.location.hash="list";
-                                //Phonebook.Router.rout.navigate("list", {trigger: true});
-                                console.log("s", data)
-                            },
-                            error: function (data) {
-                                console.log("e", data)
-                            }
-                        });*/
-
                     }
                 },
                 error: function (data) {

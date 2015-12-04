@@ -7,6 +7,7 @@ Phonebook.Router = Backbone.Router.extend({
         '': 'index',
         info: 'showContact',
         list: 'showAllContacts',
+        add:'addContact',
 
     },
     index: function () {
@@ -16,8 +17,11 @@ Phonebook.Router = Backbone.Router.extend({
         new Phonebook.Views.Info();
     },
     showAllContacts: function () {
-        console.log('list')
-        new Phonebook.Views.LoadList(this.routeParams.list);
+        var data = JSON.stringify({search:""});
+        new Phonebook.Views.LoadList(data);
+    },
+    addContact: function () {
+        new Phonebook.Views.AddContact();
     }
 });
 Phonebook.Router.rout = new Phonebook.Router();

@@ -8,23 +8,28 @@ Phonebook.Views.List = Backbone.View.extend({
     collection: null,
     initialize: function (collection) {
         this.list_contact_template = _.template($('#list-template').html());
-        this.contact_notes_template = $('#contact-note-template').html();
+        this.contact_notes_template = _.template($('#contact-note-template').html());
         this.renderListContact(collection);
     },
     renderListContact: function (collection) {
         var that = this;
+
+
         _.each(collection.models, function (record) {
+            that.$el.append(that.list_contact_template(record.toJSON()));
             that.renderOneContact(record);
         });
 
     },
-    renderOneContact: function (contact) {
-        console.log(contact.toJSON())
-       this.$el.html(this.list_contact_template(contact.toJSON()));
-       //_.template(this.contact_notes_template,contact.toJSON());
+    renderOneContact: function (record) {
+        var that = this;
+        var letter = record.toJSON().group_letter;
+        var contacts = record.toJSON().contacts;
 
-        // this.$el.append(_.template(this.contact_notes_template,contact.toJSON()));
-        //  console.log(this.$el);
+        _.each(contacts, function (cont) {
+            var currElem = that.$el.find("#group_"+letter).find("#contact-notes-block");
+            currElem.append(that.contact_notes_template(cont));
+        });
     }
 });
 Phonebook.Views.LoadList = Backbone.View.extend({

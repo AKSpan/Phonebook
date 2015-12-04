@@ -236,7 +236,7 @@ input[type=text]:focus, input[type=password]:focus {
     left: calc(25% + 5px);
     position: absolute;
     text-align: center;
-    top: 55px;
+    top: 65px;
     width: 50%;
 }
 
@@ -250,6 +250,7 @@ input[type=text]:focus, input[type=password]:focus {
     font-variant: normal;
     font-weight: 500;
     line-height: 20px;
+    margin: 5px 0;
 }
 
 .contact-note {
@@ -258,7 +259,11 @@ input[type=text]:focus, input[type=password]:focus {
     padding: 10px 0;
     position: relative;
     width: calc(100% - 50px);
-    margin: -10px 25px;
+    margin: 5px 25px;
+}
+.contact-note:hover {
+    color: red;
+    cursor: pointer;
 }
 
 .contact-thumbnails {
