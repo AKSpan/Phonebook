@@ -38,7 +38,6 @@ Phonebook.Views.Login = Backbone.View.extend({
                     if (code >= 400)
                         that.fillInfoPopup('#error-popup', answer, 'img/error.png');
                     else {
-                        console.log(data.get('code'));
                         window.location.hash="list";
                     }
                 },

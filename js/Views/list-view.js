@@ -27,7 +27,7 @@ Phonebook.Views.List = Backbone.View.extend({
         var contacts = record.toJSON().contacts;
 
         _.each(contacts, function (cont) {
-            var currElem = that.$el.find("#group_"+letter).find("#contact-notes-block");
+            var currElem = that.$el.find("#group_" + letter).find("#contact-notes-block");
             currElem.append(that.contact_notes_template(cont));
         });
     }
@@ -38,6 +38,10 @@ Phonebook.Views.LoadList = Backbone.View.extend({
     model: null,
     collection: null,
     initialize: function (search) {
+        console.log('init contacts list')
+        var tmp = JSON.parse(search);
+        tmp["action"]= "contacts";
+        search = JSON.stringify(tmp);
         var that = this;
         this.collection = new Phonebook.Collections.Contacts();
         this.collection.fetch({
