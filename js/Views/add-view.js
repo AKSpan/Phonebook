@@ -6,7 +6,11 @@ template:'add-contact',
     el:'#content',
     model:null,
     initialize: function () {
+        console.log("123213213213dasdasdsa");
         this.render();
+    },
+    render: function () {
+
     },
 
 });
