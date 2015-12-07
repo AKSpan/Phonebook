@@ -2,20 +2,47 @@
     <div id="info-page">
         <div class="contour">
             <div id="user-info">
-                <input class="inputs" type="text" name="name" placeholder="Name" value="<%= name %>"><br/>
-                <input class="inputs" type="text" name="surname" placeholder="Surname" value="<%= surname %>"><br/>
-                <input class="inputs" type="text" name="thirdname" placeholder="Third name" value="<%= thirdname %>"><br/>
-                <input class="inputs" type="text" name="birthday" placeholder="Birthday" value="<%= birthday %>">
+                <input class="inputs" type="text" name="name" placeholder="Name"><br/>
+                <input class="inputs" type="text" name="surname" placeholder="Surname"><br/>
+                <input class="inputs" type="text" name="thirdname" placeholder="Third name"><br/>
+                <input class="inputs" type="text" name="birthday" placeholder="Birthday">
             </div>
         </div>
         <div id="avatar">
             <img id="avatar-img" src="<%= avatar %>">
         </div>
-        <div id="phones">
-            <input class="inputs" type="text" name="phone"><br/>
+        <div id="phones" style="border: 2px solid; width: 200px">
+            <input id="add-new-phone" type="button" value="+">
+
+            <div id="append-phone"></div>
         </div>
-        <div id="social">
-            <input class="inputs" type="text" name="social"><br/>
+        <div id="social" style="border: 2px solid; width: 200px">
+            <input id="add-new-social" type="button" value="+">
+
+            <div id="append-social"></div>
         </div>
+        <input type="button" id="add-new-contact" value="Add">
+    </div>
+</script>
+<script id="new-phone-template" type="text/template">
+    <div class="drop-list-field">
+        <select name="phone-drop-list">
+            <option value="home">Home</option>
+            <option value="work">Work</option>
+            <option value="mobile">Mobile</option>
+            <option value="other">Other</option>
+        </select>
+        <input id="new-phone-val"><input type="button" class="remove-new-field" value="-">
+    </div>
+</script>
+<script id="new-social-template" type="text/template">
+    <div class="drop-list-field">
+        <select name="social-drop-list">
+            <option value="vk.com">vk.com</option>
+            <option value="instagram.com">instagram.com</option>
+            <option value="facebook.com">facebook.com</option>
+            <option value="twitter.com">twitter.com</option>
+        </select>
+        <input id="new-social-val"><input type="button" class="remove-new-field" value="-">
     </div>
 </script>

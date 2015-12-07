@@ -13,17 +13,6 @@ Phonebook.Models.Login = Backbone.Model.extend({
         var key = CryptoJS.SHA1(username + password);
         opts.contentType = 'application/json';
 
-       /* if (data.hasOwnProperty("action"))
-            switch (data.action) {
-                case "login":
-                    this.url = '/phonebk';
-
-                    break;
-                case "registration":
-                    this.url = '/phonebk';
-                    break;
-            }
-*/
         data.user = {
             user: username,
             pass: key.toString()

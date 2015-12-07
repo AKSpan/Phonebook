@@ -9,14 +9,17 @@ Phonebook.Models.Social = Backbone.Model.extend({
 });
 Phonebook.Models.Contact = Backbone.Model.extend({
     defaults: {
-        group_letter: 'A-Z',
+        //group_letter: 'A-Z',
         name: 'Имя',
         surname: 'Фамилия',
         thirdname: 'Отчество',
         birthday: 'Дата рождения',
-        phone: {home: '', work: ''},
+        phone: [{
+            name: 'home',
+            number: 'qwe'
+        }],
         avatar: 'img/default-avatar.png',
-        social: [],
+        social: [{name:'vk',url:'vkcom'}],
         owner: ''
     },
     addSocial: function (social) {

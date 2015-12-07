@@ -10,10 +10,16 @@
     <div id="avatar">
         <img id="avatar-img" src="img/default-avatar.png">
     </div>
-    <div id="phones">
-        <input class="inputs" type="text" name="phone"><br/>
+    <div id="phones" style="border: 2px solid; width: 200px">
+        <%
+        _.each(phone, function(data) {%>
+        <p><%= data.name %>: <%= data.number %> </p>
+        <%}); %>
     </div>
-    <div id="social">
-        <input class="inputs" type="text" name="social"><br/>
+    <div id="social" style="border: 2px solid; width: 200px">
+        <%
+        _.each(social, function(data) {%>
+        <p> <a href="#"><%= data.name %></a>: <%= data.url %> </p>
+        <%}); %>
     </div>
 </div>
