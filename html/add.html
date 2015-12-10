@@ -12,11 +12,14 @@
             <img id="avatar-img" src="<%= avatar %>">
         </div>
         <div id="phones" style="border: 2px solid; width: 200px">
+            <span>Phones</span>
+
             <input id="add-new-phone" type="button" value="+">
 
             <div id="append-phone"></div>
         </div>
         <div id="social" style="border: 2px solid; width: 200px">
+            <span>Social</span>
             <input id="add-new-social" type="button" value="+">
 
             <div id="append-social"></div>
@@ -27,22 +30,22 @@
 <script id="new-phone-template" type="text/template">
     <div class="drop-list-field">
         <select name="phone-drop-list">
-            <option value="home">Home</option>
+            <option value="home" selected>Home</option>
             <option value="work">Work</option>
             <option value="mobile">Mobile</option>
             <option value="other">Other</option>
         </select>
-        <input id="new-phone-val"><input type="button" class="remove-new-field" value="-">
+        <input type="text" id="new-phone-val"><input type="button" class="remove-new-field" value="-">
     </div>
 </script>
 <script id="new-social-template" type="text/template">
     <div class="drop-list-field">
         <select name="social-drop-list">
-            <option value="vk.com">vk.com</option>
+            <option value="vk.com" selected>vk.com</option>
             <option value="instagram.com">instagram.com</option>
             <option value="facebook.com">facebook.com</option>
             <option value="twitter.com">twitter.com</option>
         </select>
-        <input id="new-social-val"><input type="button" class="remove-new-field" value="-">
+        <input type="text" id="new-social-val"><input type="button" class="remove-new-field" value="-">
     </div>
 </script>
