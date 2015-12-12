@@ -48,19 +48,37 @@ Phonebook.Views.AddContact = Backbone.View.extend({
         var div = $('#phones').find('#append-phone > .drop-list-field');
         var selects = div.find('select');
         inputs = div.find('#new-phone-val');
-        newContact["phone"]={}
+        newContact["phone"]=[];
         for(var i=0;i < selects.length;i++)
-            newContact["phone"][i] = {name:$(selects[i]).find('option[selected]').val(),number:$(inputs[i]).val()};
+            newContact["phone"].push({name:$(selects[i]).find('option[selected]').val(),number:$(inputs[i]).val()});
         /************SOCIAL************/
         var div = $('#social').find('#append-social > .drop-list-field');
         var selects = div.find('select');
         inputs = div.find('#new-social-val');
-        newContact["social"]={}
+        newContact["social"]=[]
         for(var i=0;i < selects.length;i++)
-            newContact["social"][i] = {name:$(selects[i]).find('option[selected]').val(),url:$(inputs[i]).val()};
+            newContact["social"].push({name:$(selects[i]).find('option[selected]').val(),url:$(inputs[i]).val()});
         /*************END**************/
         var ncModel= new Phonebook.Models.Contact(newContact);
         console.log(ncModel);
+        ncModel.save({
+                action: 'add'
+            },
+            {
+                success: function (data) {
+                    console.log("save add scs",data)
+                   /* var code = data.get('code');
+                    var answer = data.get('answer');
+                    if (code >= 400)
+                        that.fillInfoPopup('#error-popup', answer, 'img/error.png');
+                    else {
+                        window.location.hash="list";
+                    }*/
+                },
+                error: function (data) {
+                    console.log('e', data)
+                }
+            });
 
     },
     addNewPhone: function () {

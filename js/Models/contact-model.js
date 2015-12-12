@@ -24,5 +24,21 @@ Phonebook.Models.Contact = Backbone.Model.extend({
     },
     addSocial: function (social) {
         this.attributes.social.push(social);
+    },
+    url:'/phonebk',
+    save: function (data,opts) {
+        console.log(this.toJSON())
+        data.contact = this.toJSON();
+        opts.contentType = 'application/json';
+        opts.data = JSON.stringify(data);
+        return Backbone.Model.prototype.save.call(this, data, opts);
+    },
+    parse: function (data) {
+        console.log(data,'parse')
+        var res = {
+            answer:data.answer,
+            code:data.code
+        };
+        return res;
     }
 });
