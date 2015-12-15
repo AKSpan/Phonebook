@@ -339,3 +339,11 @@ a:hover {
     width: 30px;
 }
 
+#avatar-img:hover {
+    cursor: pointer;
+}
+#avatar-img {
+    height: 300px;
+    width: 200px;
+}
+

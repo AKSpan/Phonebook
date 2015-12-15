@@ -9,7 +9,6 @@ Phonebook.Models.Social = Backbone.Model.extend({
 });
 Phonebook.Models.Contact = Backbone.Model.extend({
     defaults: {
-        //group_letter: 'A-Z',
         name: 'Имя',
         surname: 'Фамилия',
         thirdname: 'Отчество',
