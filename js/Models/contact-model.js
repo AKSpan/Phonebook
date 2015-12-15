@@ -31,13 +31,18 @@ Phonebook.Models.Contact = Backbone.Model.extend({
         opts.contentType = 'application/json';
         opts.data = JSON.stringify(data);
         return Backbone.Model.prototype.save.call(this, data, opts);
-    },
+    }/*,
     parse: function (data) {
-        console.log(data,'parse')
+        console.log(data,'data parse')
+
+        /!** @namespace data.contacts *!/
         var res = {
-            answer:data.answer,
-            code:data.code
+            answer:data.answer.contacts,
+            code:data.code,
+            group_letter:data.answer.group_letter
         };
+        console.log(res,'res parse')
+
         return res;
-    }
+    }*/
 });

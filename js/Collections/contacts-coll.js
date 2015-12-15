@@ -6,6 +6,7 @@ Phonebook.Collections.Contacts = Backbone.Collection.extend({
     url:'/phonebk',
     parse:function(data)
     {
-        return data.answer;
+       // console.log("parse contact collection");
+        return data;
     }
 });
