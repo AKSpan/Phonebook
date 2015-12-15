@@ -88,7 +88,6 @@ Phonebook.Views.Login = Backbone.View.extend({
                             that.fillInfoPopup('#success-popup', answer);
                     },
                     error: function (data) {
-                        console.log('e', data)
                         that.fillInfoPopup('#error-popup', name);
                     }
                 });

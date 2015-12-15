@@ -128,11 +128,11 @@ Phonebook.Views.AddContact = Backbone.View.extend({
                 canvas.width = newW;
                 canvas.height = newH;
                 var ctx = canvas.getContext("2d");
-                ctx.fillStyle = 'white';
-                ctx.fillRect(0, 0, newW, (newH - tempH) / 2);
-                ctx.drawImage(tempImg, 0, (newH - tempH) / 2 - 1, tempW, tempH);
-                ctx.fillStyle = 'white';
-                ctx.fillRect(0, (newH - tempH) / 2 + tempH - 1, newW, (newH - tempH) / 2 + 2);
+                ctx.fillStyle = 'red';
+                ctx.fillRect(0, 0, newW, (newH - tempH) / 2 + 1);
+                ctx.drawImage(tempImg, 0, (newH - tempH) / 2, tempW, tempH);
+                ctx.fillStyle = 'red';
+                ctx.fillRect(0, (newH - tempH) / 2 + tempH, newW, (newH - tempH) / 2);
                 var dataURL = canvas.toDataURL("image");
                 that.$el.find('#avatar-img').attr('src', dataURL);
             }
