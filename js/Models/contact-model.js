@@ -18,31 +18,18 @@ Phonebook.Models.Contact = Backbone.Model.extend({
             number: 'qwe'
         }],
         avatar: 'img/default-avatar.png',
-        social: [{name:'vk',url:'vkcom'}],
+        social: [{name: 'vk', url: 'vkcom'}],
         owner: ''
     },
     addSocial: function (social) {
         this.attributes.social.push(social);
     },
-    url:'/phonebk',
-    save: function (data,opts) {
+    url: '/phonebk',
+    save: function (data, opts) {
         console.log(this.toJSON())
         data.contact = this.toJSON();
         opts.contentType = 'application/json';
         opts.data = JSON.stringify(data);
         return Backbone.Model.prototype.save.call(this, data, opts);
-    }/*,
-    parse: function (data) {
-        console.log(data,'data parse')
-
-        /!** @namespace data.contacts *!/
-        var res = {
-            answer:data.answer.contacts,
-            code:data.code,
-            group_letter:data.answer.group_letter
-        };
-        console.log(res,'res parse')
-
-        return res;
-    }*/
+    }
 });

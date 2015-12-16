@@ -13,45 +13,26 @@ Phonebook.Views.List = Backbone.View.extend({
         this.renderListContact(collection);
     },
     renderListContact: function (collection) {
-        /**
-         * Сделать - сначала отрисовать блоки по алфавиту.(???? сделать массив из group_letter из ответа???)
-         * после отрисовки групп, отрисовать все контакты в свою группу.
-         * Искать элемент для вставки по id=group_<%=group_letter%>
-         * /
-        //var that = this;
-        //var collAnswerField = collection.models[0].get("answer");
-        //_.each(collAnswerField, function (record) {
-        //    var currLetter = {group_letter: record.group_letter};
-        //    _.each(record.contacts, function (one_cont) {
-        //        that.$el.append(that.list_contact_template(currLetter));
-        //        that.renderOneContact(one_cont,currLetter.group_letter);
-        //      //  console.log(one_cont)
-        //    })
-        //});
-
+        var that = this;
+        var answer = collection.models[0].get("answer");
+        console.log(answer)
+        _.each(answer, function (data) {
+            var letter = {group_letter: data.group_letter};
+            /**Отрисовка групп по буквам**/
+            that.$el.append(that.list_contact_template(letter));
+            var contacts = data.contacts;
+            _.each(contacts, function (currCont) {
+                currCont["group_letter"] = letter.group_letter;
+                console.log("*****", currCont)
+                /**Отрисовка контпактов в своб группу**/
+                that.renderContactInGroup(currCont);
+            })
+        });
     },
-    renderOneContact: function (contact,letter) {
-//        var that = this;
-//        var currElem =that.$el.find("#group_" + letter).find("#contact-notes-block");
-//console.log(currElem)
-//
-//
-//      /*  var that = this;
-//        /!** @namespace record.toJSON().answer.group_letter *!/
-//        var letter;// = record.group_letter;
-//        /!** @namespace record.toJSON().answer.contacts *!/
-//
-//        _.each(record, function (cont) {
-//          //  console.log("renderOneContact", cont)
-//            var letter = cont.group_letter;
-//            var currElem;
-//            _.each(cont.contacts, function (loop) {
-//                //  console.log("gl",letter,"curr Cont",loop)
-//                currElem = that.$el.find("#group_" + letter).find("#contact-notes-block");
-//                console.log("currElem", that.$el)
-//                currElem.append(that.contact_notes_template(loop));
-//            })
-//        });*/
+    renderContactInGroup: function (contact) {
+        var that = this;
+        var currElem = that.$el.find("#group_" + contact.group_letter).find("#contact-notes-block");
+        currElem.append(that.contact_notes_template(contact));
     }
 });
 Phonebook.Views.LoadList = Backbone.View.extend({
@@ -65,17 +46,16 @@ Phonebook.Views.LoadList = Backbone.View.extend({
         tmp["action"] = "contacts";
         search = JSON.stringify(tmp);
         var that = this;
+        var that = this;
         this.collection = new Phonebook.Collections.Contacts();
         this.collection.fetch({
             data: search,
             type: 'post',
             async: false,
-            success: function () {
+            success: function (data) {
                 that.render();
             }
         });
-
-
     },
     render: function () {
         var that = this;
@@ -86,7 +66,7 @@ Phonebook.Views.LoadList = Backbone.View.extend({
             },
             async: false
         });
-        /// console.log("LoadList render coll",this.collection)
+        //console.log("LoadList render coll", this.collection)
         new Phonebook.Views.List(this.collection);
     }
 });
