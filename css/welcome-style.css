@@ -346,4 +346,9 @@ a:hover {
     height: 300px;
     width: 200px;
 }
+.contacts > .sorted-by-alp > .contact-note {
+    background: green none repeat scroll 0 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
 

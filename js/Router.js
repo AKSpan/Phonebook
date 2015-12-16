@@ -5,16 +5,18 @@ Phonebook.Router = Backbone.Router.extend({
     routeParams: {},
     routes: {
         '': 'index',
-        info: 'showContact',
+        //info: 'showContact',
         list: 'showAllContacts',
+        'list/:id': 'showContact',
         add:'addContact',
 
     },
     index: function () {
         new Phonebook.Views.Login();
     },
-    showContact: function () {
-        new Phonebook.Views.Info();
+    showContact: function (id) {
+        //console.log("id=",id)
+        new Phonebook.Views.Info({id:id});
     },
     showAllContacts: function () {
         var data = JSON.stringify({search:""});
