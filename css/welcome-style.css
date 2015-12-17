@@ -171,10 +171,12 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 #avatar-img {
-    height: 190px;
-    width: 160px;
+    height: 200px;
+    width: 200px;
 }
-
+#avatar-img:hover {
+    cursor: pointer;
+}
 #info-page {
     min-width: 700px;
     padding-left: 25%;
@@ -339,13 +341,7 @@ a:hover {
     width: 30px;
 }
 
-#avatar-img:hover {
-    cursor: pointer;
-}
-#avatar-img {
-    height: 300px;
-    width: 200px;
-}
+
 .contacts > .sorted-by-alp > .contact-note {
     background: green none repeat scroll 0 0;
     border-radius: 5px;

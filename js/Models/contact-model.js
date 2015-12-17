@@ -26,7 +26,7 @@ Phonebook.Models.Contact = Backbone.Model.extend({
     },
     url: '/phonebk',
     save: function (data, opts) {
-        console.log(this.toJSON())
+     //   console.log(this.toJSON())
         data.contact = this.toJSON();
         opts.contentType = 'application/json';
         opts.data = JSON.stringify(data);

@@ -7,7 +7,7 @@ Phonebook.Views.AddContact = Backbone.View.extend({
     template: 'add',
     model: null,
     WIDTH: 200,
-    HEIGHT: 350,
+    HEIGHT: 200,
     initialize: function () {
         var that = this;
         $.ajax({
@@ -74,14 +74,14 @@ Phonebook.Views.AddContact = Backbone.View.extend({
             newContact["social"].push({name: $(selects[i]).find('option[selected]').val(), url: $(inputs[i]).val()});
         /*************END**************/
         var ncModel = new Phonebook.Models.Contact(newContact);
-        console.log(ncModel);
+      //  console.log(ncModel);
 
         ncModel.save({
                 action: 'add'
             },
             {
-                success: function (data) {
-                    console.log("save add scs", data)
+                success: function () {
+                    console.log("save new contact - success")
 
 
                 },
@@ -127,12 +127,12 @@ Phonebook.Views.AddContact = Backbone.View.extend({
                 var canvas = document.createElement('canvas');
                 canvas.width = newW;
                 canvas.height = newH;
+                //console.log("newW",newW,"tempW",tempW)
                 var ctx = canvas.getContext("2d");
-                ctx.fillStyle = 'red';
-                ctx.fillRect(0, 0, newW, (newH - tempH) / 2 + 1);
-                ctx.drawImage(tempImg, 0, (newH - tempH) / 2, tempW, tempH);
-                ctx.fillStyle = 'red';
-                ctx.fillRect(0, (newH - tempH) / 2 + tempH, newW, (newH - tempH) / 2);
+               // ctx.fillStyle = 'white';
+               // ctx.fillRect(0, 0, newW, (newH - tempH) / 2 + 1);
+               // ctx.drawImage(tempImg, 0, (newH - tempH) / 2, tempW, tempH);
+                ctx.drawImage(tempImg, 0, 0, tempW, tempH);
                 var dataURL = canvas.toDataURL("image");
                 that.$el.find('#avatar-img').attr('src', dataURL);
             }
